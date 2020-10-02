@@ -1,0 +1,24 @@
+version: "3.4"
+
+services:
+    trader:
+        image: trader
+        environment: 
+            TZ: "America/Argentina/Buenos_Aires"
+        build: 
+          context: .
+          dockerfile: Dockerfile
+          target: trader
+        volumes:
+          - ".:/usr/src/trader"
+        hostname: 'trader'
+
+    tester:
+      image: trader
+      build: 
+        context: .
+        dockerfile: Dockerfile
+        target: trader
+      volumes:
+        - ".:/usr/src/trader"
+      hostname: 'tester'

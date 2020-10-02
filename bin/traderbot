@@ -1,0 +1,29 @@
+#!/usr/local/bin/python
+
+import logging
+
+from trader.ticker import Ticker
+from trader.brokers import YahooFinance
+from trader.bot import Bot
+
+logger = logging.getLogger('trader')
+#coloredlogs.install()
+# Create handlers
+c_handler = logging.StreamHandler()
+
+# Create formatters and add it to handlers
+c_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+c_handler.setFormatter(c_format)
+
+# Add handlers to the logger
+logger.addHandler(c_handler)
+
+logger.setLevel(logging.DEBUG)
+
+if __name__ == '__main__':
+    logger.debug("Broker initialization")
+    ticker = Ticker('AAPL')
+    yf = YahooFinance.from_yahoo(ticker)
+    trader = Bot(ticker, yf)
+    trader.start()
