@@ -1,6 +1,8 @@
 requests
 ipython
 pandas
+xlrd
+matplotlib
 pytest==3.6.4
 pytest-cov==1.8.0
 pytest-mock==1.10.0
