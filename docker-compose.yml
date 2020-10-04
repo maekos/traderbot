@@ -5,12 +5,14 @@ services:
         image: trader
         environment: 
             TZ: "America/Argentina/Buenos_Aires"
+            DISPLAY: $DISPLAY 
         build: 
           context: .
           dockerfile: Dockerfile
           target: trader
         volumes:
           - ".:/usr/src/trader"
+          - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
         hostname: 'trader'
 
     tester:
