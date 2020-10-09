@@ -10,6 +10,8 @@ services:
           context: .
           dockerfile: Dockerfile
           target: trader
+        extra_hosts:
+          - "www.invertironline.com:54.81.69.145"
         volumes:
           - ".:/usr/src/trader"
           - "/tmp/.X11-unix:/tmp/.X11-unix:rw"

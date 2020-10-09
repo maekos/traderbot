@@ -39,3 +39,7 @@ class Mercado:
 class MercadoDummy(Mercado):
     def __init__(self):
         super().__init__('Dummy', time(0, 0, 0), time(23, 59, 59))
+
+class MervalDummy(Mercado):
+    def __init__(self):
+        super().__init__('BCBA', time(0, 0, 0), time(23, 59, 59))
